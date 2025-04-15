@@ -11,6 +11,7 @@ export default function FormContent() {
     province: "",
   });
 
+  //state to manage the form errors
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -20,7 +21,7 @@ export default function FormContent() {
     const { name, value } = e.target;
     setFormData((prev: personalInformation) => ({ ...prev, [name]: value }));
   };
-
+  // form validation
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
     if (!formData.firstName?.trim()) {
@@ -36,6 +37,7 @@ export default function FormContent() {
     return Object.keys(errors).length === 0;
   };
 
+  //handling the submission
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -47,6 +49,7 @@ export default function FormContent() {
 
     setIsSubmitting(true);
 
+    //these sends the data to the webhook
     try {
       const response = await fetch("https://hook.eu2.make.com/dyag9k66j0tszqfbw134t7rph0w1k569", {
         method: "POST",
@@ -68,6 +71,7 @@ export default function FormContent() {
   };
 
   return (
+    // This is the main form component
     <div className="min-h-screen bg-[#FAF8FF] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">
