@@ -51,7 +51,7 @@ export default function FormContent() {
 
     //these sends the data to the webhook
     try {
-      const response = await fetch("https://hook.eu2.make.com/dyag9k66j0tszqfbw134t7rph0w1k569", {
+      const response = await fetch("https://hook.eu2.make.com/t7ka0duw4vlgoljex2kmyoc7xmbq6koa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
