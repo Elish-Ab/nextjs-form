@@ -23,7 +23,7 @@ export default function PersonalInformation({
           User Information
         </h2>
         <p className="text-gray-500/90 text-sm font-medium">
-          Let's get to know you better. Please provide your details below.
+          Add user information to get started with your search.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function PersonalInformation({
                   ? "border-red-300 focus:border-red-500" 
                   : "border-gray-200/80 focus:border-purple-500"
               } rounded-xl bg-white/50 focus:bg-white/80 placeholder-gray-400/80 focus:ring-0 transition-all duration-200`}
-              placeholder="First Name"
+              placeholder="Full Name"
               required
             />
             {errors.fullName && (
