@@ -1,12 +1,10 @@
 export interface FormErrors {
-    firstName?: string;
-    lastName?: string;
+    fullName?: string;
     province?: string;
 }
 
 export type personalInformation = {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   province: string;
 };
 export interface LogEntry {

@@ -6,8 +6,7 @@ import { personalInformation, FormErrors } from "../types";
 
 export default function FormContent() {
   const [formData, setFormData] = useState<personalInformation>({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     province: "",
   });
 
@@ -24,12 +23,10 @@ export default function FormContent() {
   // form validation
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
-    if (!formData.firstName?.trim()) {
-      errors.firstName = "First name is required";
+    if (!formData.fullName?.trim()) {
+      errors.fullName = "name is required";
     }
-    if (!formData.lastName?.trim()) {
-      errors.lastName = "Last name is required";
-    }
+
     if (!formData.province?.trim()) {
       errors.province = "Province is required";
     }
@@ -51,7 +48,7 @@ export default function FormContent() {
 
     //these sends the data to the webhook
     try {
-      const response = await fetch("https://hook.eu2.make.com/dyag9k66j0tszqfbw134t7rph0w1k569", {
+      const response = await fetch("https://hook.us2.make.com/mpxm1ftor6pophwiqu23gzznhvns6w33", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -62,7 +59,7 @@ export default function FormContent() {
       }
 
       setSuccess(true);
-      setFormData({ firstName: "", lastName: "", province: "" });
+      setFormData({ fullName: "", province: "" });
     } catch (err: any) {
       setError(err.message || "An error occurred during submission");
     } finally {
