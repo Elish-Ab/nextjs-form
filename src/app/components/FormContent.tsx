@@ -24,7 +24,7 @@ export default function FormContent() {
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
     if (!formData.fullName?.trim()) {
-      errors.fullName = "name is required";
+      errors.fullName = "Name is required";
     }
 
     if (!formData.province?.trim()) {
