@@ -33,36 +33,70 @@ export default function PersonalInformation({
           <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-200 to-blue-100 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <UserCircleIcon className={`h-6 w-6 ${errors.fullName ? 'text-red-400' : 'text-gray-400'} transition-colors`} />
+              <UserCircleIcon className={`h-6 w-6 ${errors.firstName ? 'text-red-400' : 'text-gray-400'} transition-colors`} />
             </div>
             <input
-              id="fullName"
-              name="fullName"
+              id="firstName"
+              name="firstName"
               type="text"
-              value={formData.fullName}
+              value={formData.firstName}
               onChange={handleInputChange}
               className={`block w-full pl-12 pr-4 py-4 text-lg border-2 ${
-                errors.fullName 
+                errors.firstName 
                   ? "border-red-300 focus:border-red-500" 
                   : "border-gray-200/80 focus:border-purple-500"
               } rounded-xl bg-white/50 focus:bg-white/80 placeholder-gray-400/80 focus:ring-0 transition-all duration-200`}
-              placeholder="Full Name"
+              placeholder="First Name"
               required
             />
-            {errors.fullName && (
+            {errors.firstName && (
               <div className="absolute right-3 top-1/2 -translate-y-1/2">
                 <ExclamationCircleIcon className="h-6 w-6 text-red-500 animate-pulse" />
               </div>
             )}
           </div>
-          {errors.fullName && (
+          {errors.firstName && (
             <p className="mt-2 ml-2 text-sm text-red-600 flex items-center gap-1 animate-fade-in">
               <ExclamationCircleIcon className="h-4 w-4" />
-              {errors.fullName}
+              {errors.firstName}
             </p>
           )}
         </div>
 
+        {/* Last Name */}
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-200 to-blue-100 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-all duration-300"></div>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <UserCircleIcon className={`h-6 w-6 ${errors.lastName ? 'text-red-400' : 'text-gray-400'} transition-colors`} />
+            </div>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              className={`block w-full pl-12 pr-4 py-4 text-lg border-2 ${
+                errors.lastName 
+                  ? "border-red-300 focus:border-red-500" 
+                  : "border-gray-200/80 focus:border-purple-500"
+              } rounded-xl bg-white/50 focus:bg-white/80 placeholder-gray-400/80 focus:ring-0 transition-all duration-200`}
+              placeholder="Last Name"
+              required
+            />
+            {errors.lastName && (
+              <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                <ExclamationCircleIcon className="h-6 w-6 text-red-500 animate-pulse" />
+              </div>
+            )}
+          </div>
+          {errors.lastName && (
+            <p className="mt-2 ml-2 text-sm text-red-600 flex items-center gap-1 animate-fade-in">
+              <ExclamationCircleIcon className="h-4 w-4" />
+              {errors.lastName}
+            </p>
+          )}
+        </div>
 
         {/* Province */}
         <div className="group relative">

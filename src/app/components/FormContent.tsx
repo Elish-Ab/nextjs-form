@@ -6,7 +6,8 @@ import { personalInformation, FormErrors } from "../types";
 
 export default function FormContent() {
   const [formData, setFormData] = useState<personalInformation>({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     province: "",
   });
 
@@ -20,11 +21,15 @@ export default function FormContent() {
     const { name, value } = e.target;
     setFormData((prev: personalInformation) => ({ ...prev, [name]: value }));
   };
+
   // form validation
   const validateForm = (): boolean => {
     const errors: FormErrors = {};
-    if (!formData.fullName?.trim()) {
-      errors.fullName = "Name is required";
+    if (!formData.firstName?.trim()) {
+      errors.firstName = "First name is required";
+    }
+    if (!formData.lastName?.trim()) {
+      errors.lastName = "Last name is required";
     }
 
     if (!formData.province?.trim()) {
@@ -59,7 +64,7 @@ export default function FormContent() {
       }
 
       setSuccess(true);
-      setFormData({ fullName: "", province: "" });
+      setFormData({ firstName: "", lastName: "", province: "" });
     } catch (err: any) {
       setError(err.message || "An error occurred during submission");
     } finally {
@@ -72,7 +77,7 @@ export default function FormContent() {
     <div className="min-h-screen bg-[#FAF8FF] py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">
-        Search for an  Information
+          Search for an  Information
         </h1>
         <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 rounded-2xl shadow-md border border-gray-200">
           <PersonalInformation
